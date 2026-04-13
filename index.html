@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uma cartinha só sua ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="petals-bg" id="petals"></div>
+
+<div class="scene">
+  <div class="book-wrapper">
+    <div class="book">
+      <div class="page page-left"  id="pL"></div>
+      <div class="spine"></div>
+      <div class="page page-right" id="pR"></div>
+    </div>
+  </div>
+
+  <div class="nav">
+    <button class="nav-btn" id="btnPrev" onclick="go(-1)" disabled>&#8249;</button>
+    <div class="dots" id="dots"></div>
+    <button class="nav-btn" id="btnNext" onclick="go(1)">&#8250;</button>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

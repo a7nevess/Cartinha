@@ -1,0 +1,252 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fdf0e8;
+      font-family: 'Lato', sans-serif;
+      overflow: hidden;
+    }
+
+    .petals-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .petal {
+      position: absolute;
+      opacity: 0.22;
+      animation: fall linear infinite;
+      user-select: none;
+    }
+
+    @keyframes fall {
+      0%   { transform: translateY(-30px) rotate(0deg);   opacity: 0.22; }
+      100% { transform: translateY(110vh) rotate(400deg); opacity: 0; }
+    }
+
+    .scene {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem 2.5rem;
+      width: 100%;
+    }
+
+    .book-wrapper {
+      width: 100%;
+      max-width: 520px;
+    }
+
+    .book {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      border-radius: 4px 16px 16px 4px;
+      box-shadow:
+        0 40px 100px rgba(160, 60, 60, 0.18),
+        0 10px 30px rgba(0,0,0,0.10);
+      min-height: 400px;
+    }
+
+    .spine {
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, #c5785a, #9e4848, #c5785a);
+      transform: translateX(-50%);
+      z-index: 10;
+      box-shadow: 1px 0 10px rgba(0,0,0,0.14);
+    }
+
+    .page {
+      padding: 2.2rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      min-height: 400px;
+      overflow: hidden;
+    }
+
+    .page-left {
+      background: #fdf6ee;
+      border-radius: 4px 0 0 4px;
+      border-right: 1px solid #e8c8a8;
+    }
+
+    .page-right {
+      background: #fef9f4;
+      border-radius: 0 16px 16px 0;
+    }
+
+    .page-num {
+      position: absolute;
+      bottom: 14px;
+      font-size: 11px;
+      color: #c5a080;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      letter-spacing: 0.05em;
+    }
+    .page-left  .page-num { left: 18px; }
+    .page-right .page-num { right: 18px; }
+
+    .ornament {
+      color: #d4886a;
+      font-size: 17px;
+      margin-bottom: 0.7rem;
+      opacity: 0.75;
+      letter-spacing: 0.2em;
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #8b3a3a;
+      margin-bottom: 0.9rem;
+      line-height: 1.4;
+      letter-spacing: 0.02em;
+    }
+
+    .page-text {
+      font-size: 13px;
+      line-height: 1.8;
+      color: #6b4a3a;
+      font-weight: 300;
+    }
+
+    .page-text em {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: #a05050;
+      font-size: 13.5px;
+    }
+
+    .page-text strong {
+      color: #8b3a3a;
+      font-weight: 400;
+    }
+
+    .heart-mid {
+      color: #d4706a;
+      font-size: 22px;
+      margin: 0.7rem 0;
+      display: block;
+    }
+
+    .cover-heart {
+      font-size: 52px;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      display: block;
+      animation: heartbeat 2.4s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      14%       { transform: scale(1.13); }
+      28%       { transform: scale(1); }
+      42%       { transform: scale(1.07); }
+      56%       { transform: scale(1); }
+    }
+
+    .ribbon {
+      display: inline-block;
+      background: #d4706a;
+      color: #fff;
+      font-size: 9.5px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      padding: 3px 14px;
+      border-radius: 2px;
+      margin-bottom: 0.9rem;
+      font-family: 'Lato', sans-serif;
+      font-weight: 400;
+    }
+
+    .cover-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 12px;
+      color: #b07060;
+      margin-top: 0.4rem;
+      letter-spacing: 0.07em;
+    }
+
+    /* flip animation */
+    .flip-fwd { animation: flipFwd 0.55s cubic-bezier(0.4,0,0.2,1); }
+    .flip-bwd { animation: flipBwd 0.55s cubic-bezier(0.4,0,0.2,1); }
+
+    @keyframes flipFwd {
+      0%  { opacity:1; transform:rotateY(0deg); }
+      40% { opacity:0; transform:rotateY(30deg) scale(0.97); }
+      60% { opacity:0; transform:rotateY(-30deg) scale(0.97); }
+      100%{ opacity:1; transform:rotateY(0deg); }
+    }
+    @keyframes flipBwd {
+      0%  { opacity:1; transform:rotateY(0deg); }
+      40% { opacity:0; transform:rotateY(-30deg) scale(0.97); }
+      60% { opacity:0; transform:rotateY(30deg) scale(0.97); }
+      100%{ opacity:1; transform:rotateY(0deg); }
+    }
+
+    /* nav */
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      margin-top: 1.6rem;
+    }
+
+    .nav-btn {
+      background: none;
+      border: 1.5px solid #c5906a;
+      color: #a05050;
+      border-radius: 50%;
+      width: 42px; height: 42px;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.18s, transform 0.1s;
+      line-height: 1;
+    }
+    .nav-btn:hover:not(:disabled) { background: #f4e0d0; transform: scale(1.08); }
+    .nav-btn:active:not(:disabled) { transform: scale(0.95); }
+    .nav-btn:disabled { opacity: 0.22; cursor: default; }
+
+    .dots {
+      display: flex;
+      gap: 7px;
+    }
+    .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #d4b0a0;
+      transition: background 0.3s;
+    }
+    .dot.on { background: #a05050; }
+
+    @keyframes pulse-btn {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(197,144,106,0); }
+      50%       { box-shadow: 0 0 0 6px rgba(197,144,106,0.18); }
+    }
+
+    /* responsive */
+    @media (max-width: 480px) {
+      .page { padding: 1.4rem 1rem; min-height: 320px; }
+      .page-title { font-size: 13.5px; }
+      .page-text  { font-size: 12px; }
+      .cover-heart { font-size: 40px; }
+    }
