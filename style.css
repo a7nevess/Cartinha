@@ -243,6 +243,27 @@
       50%       { box-shadow: 0 0 0 6px rgba(197,144,106,0.18); }
     }
 
+    /* photo pages */
+    .page-photo-wrap {
+      width: calc(100% + 2.8rem);
+      margin-left: -1.4rem;
+      margin-right: -1.4rem;
+      flex: 1;
+      overflow: hidden;
+      border-radius: 0;
+    }
+    .page-photo-wrap:first-child {
+      margin-top: -1.8rem;
+      border-radius: 12px 12px 0 0;
+    }
+    .page-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
     /* responsive */
     @media (max-width: 480px) {
       .page { padding: 1.4rem 1rem; min-height: 320px; }
